@@ -1,0 +1,34 @@
+<%- include("navbar.ejs")%>
+<table class="table">
+  <tr>
+
+    <th>Car</th>
+    <th>Pickup</th>
+    <th>Drop</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  <% book_cars.forEach(b => { %>
+    <tr>
+     
+      <td><%= b.car_name %></td>
+      <td><%= b.pick_up %> (<%= b.pick_up_date %>)</td>
+      <td><%= b.drop_off %> (<%= b.drop_off_date %>)</td>
+      <td><%= b.status %></td>
+      <td>
+        <% if (b.status === "Pending") { %>
+          <form action="/admin/approve/<%= b.book_cars_id %>" method="POST" style="display:inline;">
+            <button class="btn btn-success btn-sm">Approve</button>
+          </form>
+          <form action="/admin/reject/<%= b.book_cars_id %>" method="POST" style="display:inline;">
+            <button class="btn btn-danger btn-sm">Reject</button>
+          </form>
+        <% } else { %>
+          <span><%= b.status %></span>
+        <% } %>
+      </td>
+    </tr>
+  <% }) %>
+</table>
+
+<%- include("footer.ejs")%>

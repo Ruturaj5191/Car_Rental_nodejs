@@ -1,0 +1,63 @@
+<%- include("navbar.ejs")%>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-6 mt-5 mb-5 d-flex align-items-center">
+                <form action="/book_car" method="post" class="request-form ftco-animate bg-primary">
+                    <h2>Make your trip</h2>
+                    <div class="form-group">
+                        <label for="" class="label">Pick-up location</label>
+                        <input required type="text" name="pick_up" class="form-control"
+                            placeholder="City, Airport, Station, etc">
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="label">Drop-off location</label>
+                        <input required type="text" name="drop_off" class="form-control"
+                            placeholder="City, Airport, Station, etc">
+                    </div>
+                    <div class="d-flex">
+                        <div class="form-group mr-2">
+                            <label for="" class="label">Pick-up date</label>
+                            <input required type="text" name="pick_up_date" class="form-control" id="book_pick_date"
+                                placeholder="Date">
+                        </div>
+                        <div class="form-group ml-2">
+                            <label for="" class="label">Drop-off date</label>
+                            <input required type="text" name="drop_off_date" class="form-control" id="book_off_date"
+                                placeholder="Date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="label">Pick-up time</label>
+                        <input required type="text" name="pick_up_time" class="form-control" id="time_pick"
+                            placeholder="Time">
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="label">select car</label>
+                        <select name="car_id" class="bg-primary text-white border-gray" required>
+                            <% cars_info.map((row,i)=>{%>
+                                <option value="<%-row.car_id%>"><%-row.car_name%></option>
+                                <%})%>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 mt-5 mb-5 d-flex align-item-center">
+                <% cars_info.map((row,i)=>{%>
+                    <div class="card" >
+                        <img src="/<%-row.car_image%>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><%-row.car_name%></h5>
+                            <p class="card-text"><%-row.car_feature%></p>
+                           
+                        </div>
+                    </div>
+                    <%})%>
+
+            </div>
+        </div>
+    </div>
+    <%- include("footer.ejs")%>

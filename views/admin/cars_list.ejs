@@ -1,0 +1,43 @@
+<%- include("navbar.ejs")%>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Cars List</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Cars Name</th>
+                    <th>Cars price per day</th>
+                    <th>feature</th>
+                    <th>deatails</th>
+                    <th>images</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <% cars_info.map((row,i)=>{ %>
+                        <tr>
+                            <td><%-i + 1 %></td>
+                            <td><%-row.car_name %></td>
+                            <td><%-row.car_price %></td>
+                            <td><%-row.car_feature %></td>
+                            <td><%-row.car_details %></td>
+
+                            <td>
+                            <img src="/<%-row.car_image %>" alt="Book Image" width="60" height="60" style="object-fit: cover;">
+                             
+                            </td>
+                            <td>
+                                <a href="/admin/edit_car/<%-row.car_id %>" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="/admin/delete_car/<%-row.car_id %>" class="btn btn-danger btn-sm" onclick="return confirm('Delete this car?')">Delete</a>
+                            </td>
+                        </tr>
+         
+                <%})%>
+               
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include("footer.ejs")%>

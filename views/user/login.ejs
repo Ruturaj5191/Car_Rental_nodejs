@@ -1,0 +1,39 @@
+<%- include("navbar.ejs") %>
+
+
+<div class="container mt-5 ">
+    <div class="row justify-content-center">
+        <div class="col-md-5 mt-5">
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>User Login</h4>
+                </div>
+                <div class="card-body">
+                    <form action="/save_login" method="POST">
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="user_email" class="form-label">Email & Mobile No</label>
+                            <input type="text" name="user_email" id="user_email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="user_password" class="form-label">Password</label>
+                            <input type="password" name="user_password" id="user_password" class="form-control" placeholder="Enter your password" required>
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Login</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    Don’t have an account? <a href="/registration">Register here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("footer.ejs") %>

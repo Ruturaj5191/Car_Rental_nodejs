@@ -1,0 +1,51 @@
+<%- include("navbar.ejs")%>
+
+<form action="/admin/save_cars" method="post" enctype="multipart/form-data">
+    <div class="container card card-body mt-4">
+        <h4 class="mb-4">Add Cars</h4>
+
+        <div class="row">
+       
+            <div class="col-md-6 mb-3">
+                <label for="car_name">Car Name:</label>
+                <input type="text" name="car_name" id="car_name" class="form-control" required>
+            </div>
+
+           <div class="col-md-6 mb-3">
+                <label for="car_price">Car Price Per Day:</label>
+                <input type="number"  name="car_price" id="car_price" class="form-control" required>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="car_feature">Car feature</label>
+                <textarea type="text"  name="car_feature" id="car_feature" class="form-control" required></textarea>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="car_details">Car Details</label>
+                <textarea type="text"  name="car_details" id="car_details" class="form-control" required></textarea>
+            </div>
+
+         
+         
+
+                  
+            <div class="col-md-6 mb-3">
+                <label for="car_image">Car Image:</label>
+                <input type="file"  name="car_image" id="car_image" class="form-control" required>
+            </div>
+
+            
+       
+       
+            <!-- Submit -->
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary">Save Book</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<%- include("footer.ejs")%>
+
+

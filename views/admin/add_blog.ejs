@@ -1,0 +1,37 @@
+<%- include("navbar.ejs")%>
+
+<form action="/admin/save_blog" method="post" enctype="multipart/form-data">
+    <div class="container card card-body mt-4">
+        <h4 class="mb-4">Add Blog</h4>
+
+        <div class="row">
+       
+            <div class="col-md-6 mb-3">
+                <label for="blog_name">Blog Name:</label>
+                <input type="text" name="blog_name" id="blog_name" class="form-control" required>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="blog_date">Blog Date:</label>
+                <input type="date" name="blog_date" id="blog_date" class="form-control" required>
+            </div>
+
+             <div class="col-md-6 mb-3">
+                <label for="blog_image">Car Image:</label>
+                <input type="file"  name="blog_image" id="blog_image" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="blog_text">Blog text:</label>
+              <textarea name="blog_text" class="form-control"  id="" required></textarea>
+            </div>
+   
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary">Save Blog</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<%- include("footer.ejs")%>
+
+

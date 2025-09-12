@@ -1,0 +1,50 @@
+<%- include("navbar.ejs") %>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mt-5">
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>User Registration</h4>
+                </div>
+                <div class="card-body">
+                    <form action="/save_register" method="POST">
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label for="user_name" class="form-label">Full Name</label>
+                            <input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+
+                        <!-- Mobile -->
+                        <div class="mb-3">
+                            <label for="user_mobile" class="form-label">Mobile Number</label>
+                            <input type="tel" name="user_mobile" id="user_mobile" class="form-control" placeholder="Enter your mobile number" required pattern="[0-9]{10}">
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="user_email" class="form-label">Email address</label>
+                            <input type="email" name="user_email" id="user_email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="user_password" class="form-label">Password</label>
+                            <input type="password" name="user_password" id="user_password" class="form-control" placeholder="Enter your password" required>
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Register</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    Already have an account? <a href="/login">Login here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("footer.ejs") %>

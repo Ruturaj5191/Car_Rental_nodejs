@@ -1,0 +1,57 @@
+<%- include("navbar.ejs")%>
+
+<form action="/admin/update_car/<%-car_info.car_id%>" method="post" enctype="multipart/form-data">
+    <div class="container card card-body mt-4">
+        <h4 class="mb-4">Update Car</h4>
+
+        <div class="row">
+                <input type="hidden" name="car_id" value="<%-car_info.car_id%>" id="car_id" class="form-control" required>
+                <input type="hidden" name="old_car_image" value="<%-car_info.car_image%>" id="car_image" class="form-control" required>
+            
+            <div class="col-md-6 mb-3">
+                <label for="car_name">Car Name:</label>
+                <input type="text" name="car_name" value="<%-car_info.car_name%>" id="car_name" class="form-control" required>
+            </div>
+
+           <div class="col-md-6 mb-3">
+                <label for="car_price">Car Price Per Day:</label>
+                <input type="number"  name="car_price" value="<%-car_info.car_price%>" id="car_price" class="form-control" required>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="car_feature">Car feature</label>
+                <textarea type="text"  name="car_feature" value="" id="car_feature" class="form-control" required><%-car_info.car_details%></textarea>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="car_details">Car Details</label>
+                <textarea type="text"  name="car_details" value="" id="car_details" class="form-control" required><%-car_info.car_details%></textarea>
+            </div>
+
+         
+         
+
+                  
+            <div class="col-md-6 mb-3">
+                <label for="car_image">Car Image:</label>
+                <input type="file"  name="car_image"  id="car_image" class="form-control" >
+                <% if(car_info.car_image){%>
+                    <img src="/<%-car_info.car_image%>" width="50px"  alt="">
+                <%}%>
+
+            </div>
+
+            
+       
+       
+            <!-- Submit -->
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary">Save car</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<%- include("footer.ejs")%>
+
+

@@ -1,0 +1,35 @@
+<%- include("navbar.ejs")%>
+<div class="container mt-5">
+    <h2 class="mb-4">Blog List</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Sr No</th>
+                    <th>blog name</th>
+                    <th>blog post date</th>
+                    <th>blog text</th>
+                    <th>blog image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        <tbody>
+            <% blog_list.map((row,i)=>{%>
+            <tr>
+                <td><%- i+1%></td>
+                <td><%- row.blog_name%></td>
+                <td><%- row.blog_date%></td>
+                <td><%- row.blog_text%></td>
+                <td><img src="/<%-row.blog_image%>" width="100px" alt=""></td>
+                <td>
+                    <button class="btn btn-danger text-white  mb-2"><a href="/admin/delete_blog/<%-row.blog_id%>" class="text-white">Delete</a></button>
+                    <button class="btn btn-primary text-white"><a href="/admin/edit_blog/<%-row.blog_id%>" class="text-white">Edit</a></button>
+
+                </td>
+            </tr>
+            <%})%>
+        </tbody>
+        </table>
+    </div>
+</div>
+<%- include("footer.ejs")%>

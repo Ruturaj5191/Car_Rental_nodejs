@@ -1,0 +1,37 @@
+<%- include("navbar.ejs")%>
+
+<form action="/admin/update_blog/<%-blog_info.blog_id%>" method="post" enctype="multipart/form-data">
+    <div class="container card card-body mt-4">
+        <h4 class="mb-4">Update Blog</h4>
+
+        <div class="row">
+                <input type="hidden" name="blog_id" value="<%-blog_info.blog_id%>" id="blog_id" class="form-control" required>
+                <input type="hidden" name="old_blog_image" value="<%-blog_info.blog_image%>" id="blog_image" class="form-control" required>
+            
+            <div class="col-md-6 mb-3">
+                <label for="blog_name">Blog Name:</label>
+                <input type="text" name="blog_name" value="<%-blog_info.blog_name%>" id="blog_name" class="form-control" required>
+            </div>
+             <div class="col-md-6 mb-3">
+                <label for="blog_date">Blog Name:</label>
+                <input type="date" name="blog_date" value="<%-blog_info.blog_date%>" id="blog_date" class="form-control" required>
+            </div>
+             <div class="col-md-6 mb-3">
+                <label for="blog_text">Blog Name:</label>
+                <input type="text" name="blog_text" value="<%-blog_info.blog_text%>" id="blog_text" class="form-control" required>
+            </div>
+             <div class="col-md-6 mb-3">
+                <label for="blog_image">Blog Name:</label>
+                <input type="file" name="blog_image" id="blog_image" class="form-control" >
+                <% if(blog_info.blog_image){%>
+                <img src="/<%-blog_info.blog_image%>" width="100px" alt="">    
+                <%}%>
+            </div>
+
+             <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary">Save blog</button>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include("footer.ejs")%>
